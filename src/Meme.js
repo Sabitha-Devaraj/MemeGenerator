@@ -6,47 +6,66 @@ const Meme = () => {
     const [meme, setMeme] = useState({
         topText : "",
         bottomText : "",
-        randomImage : ""
+        randomImage : "http://i.imgflip.com/1bij.jpg"
     });
-    const [allMemeImages,setAllMemeImages] = useState(memesData)
+    //const [allMemeImages,setAllMemeImages] = useState(memesData)
 
     function getMemeImage() {   
-        const memesArray = allMemeImages.data.memes
+        const memesArray = memesData.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
+
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage : url
         }))      
     }  
+console.log(meme)
+    function handleChange(event){
+        const {name,value} = event.target
+        setMeme(prevMeme => (
+            {
+                ...prevMeme,
+                [name] : value
+            }
+        ))
+    }
     
     return (
         <main>
            <div className="form">
-                <div>
-                    <label className="formLabel">Top Text</label>
-                    <input 
-                        className="formInput"
-                        type="text"
-                        placeholder="Top Text"
-                    />
-                </div>
-                <div>
-                <label className="formLabel">Bottom Text</label>
-                    <input 
-                        className="formInput"
-                        type="text"
-                        placeholder="Bottom Text"
-                    />
-                
-                </div>
+              
+                <input 
+                    className="formInput"
+                    type="text"
+                    placeholder="Top Text"
+                    name="topText"
+                    value={meme.topText}
+                    onChange={handleChange}
+                />
+            
+                <input 
+                    className="formInput"
+                    type="text"
+                    placeholder="Bottom Text"
+                    name="bottomText"
+                    value={meme.bottomText}
+                    onChange={handleChange}
+                />
+            
                 <button 
                     className="formButton" 
                     onClick={getMemeImage}>
                     Get a new meme image  🖼
                 </button>
+                
             </div>
-            {meme.randomImage &&<img src={meme.randomImage} alt="random meme" className="memeImage"/>}
+
+            <div className="meme">
+                    <img src={meme.randomImage} alt="random meme"  className="memeImage" />
+                    <h2 className="memeText top">{meme.topText}</h2>
+                    <h2 className="memeText bottom">{meme.bottomText}</h2>
+            </div>
         </main>
     )
 }

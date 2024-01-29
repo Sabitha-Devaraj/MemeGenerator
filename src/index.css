@@ -5,9 +5,11 @@
 body {
   font-family: "Karla", sans-serif;
   margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-.Header{
+.header{
   display: flex;
   align-items: center;
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
@@ -15,13 +17,13 @@ body {
   color: #FFF;   
 }
 
-.TrollFace {
+.trollFace {
   width: 32px;
   height: 27px;
   margin-right: 6px;
 }
 
-.Title { 
+.title { 
   font-family: Karla;
   font-size: 21px;
   font-weight: 700;
@@ -41,7 +43,7 @@ main {
 
 .form {
  display: grid;
- grid-template: 100% 100%/ 1fr 1fr;
+ grid-template: 40px 40px/ 1fr 1fr;
  gap: 17px;
 }
 
@@ -74,9 +76,46 @@ main {
   border: none;
 }
 
+.meme {
+  text-align: center;
+  position: relative;
+}
+
 .memeImage {
   max-width: 100%;
-  margin-top: 200px;
-  max-height: 500px;
-  border: 1px solid red;
+  border-radius: 3px;
+  
+}
+
+.memeText {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      0 2px 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      -2px 0 0 #000,
+      2px 2px 5px #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
 }
