@@ -6,7 +6,7 @@ body {
   font-family: "Karla", sans-serif;
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .header{
@@ -79,6 +79,7 @@ main {
 .meme {
   text-align: center;
   position: relative;
+  margin: auto;
 }
 
 .memeImage {
